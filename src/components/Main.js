@@ -1,3 +1,5 @@
+import formImg from "../forest__1_by_marc_andre_dfhjmu8-pre.jpg";
+
 export default function Main() {
   return (
     <main className="h-screen flex items-center justify-center">
@@ -29,9 +31,40 @@ export default function Main() {
                 placeholder="enter your email"
               ></input>
             </div>
+
+            <div className="pb-3">
+              <label className="block text-sm pb-2" htmlFor="country">
+                Country
+              </label>
+              <select
+                name="cointry"
+                className="border-2 border-green-600 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500"
+              >
+                <option>Ukraine</option>
+                <option>United States</option>
+                <option>United Kinhdom</option>
+                <option>Germany</option>
+              </select>
+            </div>
+
+            <div className="pb-2">
+              <label className="block text-sm pb-2" htmlFor="terms">
+                Terms of srvice
+              </label>
+              <div className="flex items-center gap-2">
+                <input type="checkbox" name="terms" value="checked" />
+                <p>I totaly agree to the Terms</p>
+              </div>
+            </div>
+
+            <button
+              className="bg-teal-500 text-sm text-white py-3 mt-6 p-20 rounded-lg"
+              type="submit"
+            >
+              Enter
+            </button>
           </div>
         </div>
-        <div></div>
       </form>
     </main>
   );
