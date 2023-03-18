@@ -18,7 +18,7 @@ export default function Main() {
         .required("Name is requiered"),
       email: Yup.string()
         .email("Invalid email address")
-        .required("Name is requiered"),
+        .required("Email is requiered"),
       terms: Yup.array().required("Ters of service must be checked"),
     }),
 
@@ -36,8 +36,17 @@ export default function Main() {
           <p className="text-lg">jojo is stile alive</p>
           <div className="mt-6">
             <div className="pb-2">
-              <label className="block text-sm pb-2" htmlFor="name">
-                Name
+              <label
+                className={`block text-sm pb-2 ${
+                  formik.touched.name && formik.errors.name
+                    ? "text-red-900"
+                    : ""
+                }`}
+                htmlFor="name"
+              >
+                {formik.touched.name && formik.errors.name
+                  ? formik.errors.name
+                  : "Name"}
               </label>
 
               <input
@@ -47,12 +56,22 @@ export default function Main() {
                 placeholder="enter yout name"
                 value={formik.values.name}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               ></input>
             </div>
 
             <div className="pb-2">
-              <label className="block text-sm pb-2" htmlFor="email">
-                Email
+              <label
+                className={`block text-sm pb-2 ${
+                  formik.touched.email && formik.errors.email
+                    ? "text-red-900"
+                    : ""
+                }`}
+                htmlFor="email"
+              >
+                {formik.touched.email && formik.errors.email
+                  ? formik.errors.email
+                  : "email"}
               </label>
               <input
                 className="border-2 border-green-600 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500"
@@ -61,6 +80,7 @@ export default function Main() {
                 placeholder="enter your email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               ></input>
             </div>
 
